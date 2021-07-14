@@ -4,6 +4,9 @@ const mongoose = require("mongoose")
 const app = express()
 app.use(express.json())
 
+
+// Database local serverde çalıştırma
+// ToDoApp adında DB
 const db = "mongodb://localhost:27017/ToDoApp"
 
 mongoose.connect(db, ({ useNewUrlParser: true }))
@@ -17,6 +20,8 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('todo', todoSchema)
 
+
+// GET POST ve DELETE işlemleri
 app.get("/todos", (request, res) => {
     Todo.find().then(todo => res.json(todo))
 
@@ -35,6 +40,7 @@ app.delete("/todos/:id", (request, res) => {
 
 })
 
-app.listen(5000, () => {
-    console.log("server is running at port: 5000")
+// Açılan port bilgisi
+app.listen(4000, () => {
+    console.log("server is running at port: 4000")
 });

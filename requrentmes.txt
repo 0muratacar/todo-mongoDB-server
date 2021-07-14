@@ -1,2 +1,0 @@
-npm init -y ile package.json oluşturuldu
-dependencies: npm i express mongoose nodemon concurrently
